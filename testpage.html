@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example HTML Page</title>
+  <style>
+      /*
+       In the page, there is a button, When mouse hover over it, a menu of five items pop up. When mouse hover ove the 2nd item of the pop up menu, a dialog box appears shows "Nice to see you".
+      */
+    /* Style the button */
+    .button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1c87c9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Style the pop up menu */
+    .pop-up-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 200px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+
+    /* Style the menu items */
+    .pop-up-menu li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Style the menu items on hover */
+    .pop-up-menu li:hover {
+      background-color: #eee;
+    }
+
+    /* Style the dialog box */
+    .dialog-box {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 200px;
+      border: 2px solid #999;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Style the dialog box header */
+    .dialog-box-header {
+      padding: 10px;
+      background-color: #1c87c9;
+      color: white;
+    }
+
+    /* Style the dialog box content */
+    .dialog-box-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Style the dialog box close button */
+    .dialog-box-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: none;
+      background-color: #999;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Create a button -->
+  <div class="button" onmouseover="showMenu()" onmouseout="hideMenu()">
+    Hover Me
+    <!-- Create a pop up menu -->
+    <ul class="pop-up-menu" id="menu">
+      <li>Item 1</li>
+      <li onmouseover="showDialog()">Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+  </div>
+
+  <!-- Create a dialog box -->
+  <div class="dialog-box" id="dialog">
+    <div class="dialog-box-header">
+      <span>Dialog Box</span>
+    </div>
+    <div class="dialog-box-content">
+      <p>Nice to see you</p>
+    </div>
+    <button class="dialog-box-close" onclick="hideDialog()">X</button>
+  </div>
+
+  <!-- Add JavaScript to control the pop up menu and the dialog box -->
+  <script>
+    // Get the pop up menu element
+    var menu = document.getElementById("menu");
+
+    // Get the dialog box element
+    var dialog = document.getElementById("dialog");
+
+    // Define a function to show the pop up menu
+    function showMenu() {
+      menu.style.display = "block";
+    }
+
+    // Define a function to hide the pop up menu
+    function hideMenu() {
+     menu.style.display = "none";
+     hideDialog();
+   }
+
+   // Define a function to show the dialog box
+   function showDialog() {
+     dialog.style.display = "block";
+   }
+
+   // Define a function to hide the dialog box
+   function hideDialog() {
+     dialog.style.display = "none";
+   }
+ </script>
+</body>
+</html>
